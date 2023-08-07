@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="form-div">
+        <form id="form">
+            <button class="close-btn btn">x</button>
+
+            <label for="">Name</label>
+            <input type="text" id="username" placeholder="John Doe" required>
+
+            <label for="">Email</label>
+            <input type="email" placeholder="xxxxx@xxxx.com" required>
+
+            <label for="">Adress</label>
+            <input type="text" placeholder="95134 San Jose" required>
+            
+            <label for="">Phone Number</label>
+            <input type="number" placeholder="123908745" required>
+
+            <h2>PAYMENT</h2>
+            <label for="">Name on card</label>
+            <input type="text" placeholder="John Doe" required>
+
+            <label for="">Credit Card Number</label>
+            <input type="text" placeholder="1111-2222-3333-4444" required>
+            
+            <label for="">Expiration date</label>
+            <input type="date" required>
+            
+            <button id="checkoutBtn" class="btn">
+                Checkout
+            </button>
+        </form>
+    </div>
+
+
+
+    <header>
+    
+        <a href="#">
+            <img src="./images/header-apple.svg" alt="">
+        </a>
+
+
+     
+        <a href="#cart">
+            <img src="./images/cart.svg" alt="">
+        </a>
+           
+      
+    
+  
+    </header>
+    
+    <main>
+        <section id="hero">
+            <h1>
+                APOL STORE
+            </h1>
+        </section>
+
+        <h2 class="section-title">PRODUCTS</h2>
+        <section class="products-list">
+            <div class="products"></div>    
+        </section> 
+
+
+        <h2 class="section-title">CART  <button id="accBtn" class="btn header-btn">Checkout</button></h2>
+        <section id="cart" class="cart">
+            <div class="cart-items"></div>
+            <div class="total"></div>
+        </section>
+    </main>
+
+
+
+
+
+
+
+    <script src="./js/products.js"></script>
+    <script src="./js/form.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
