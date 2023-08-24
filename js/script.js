@@ -8,7 +8,7 @@ const dayCard = document.getElementById('dayCard');
 const timeZoneCard = document.getElementById('timeZoneCard');
 
 // USE OF API  -----------------------------------------------
-const url = 'http://worldtimeapi.org/api/ip'
+const url = 'https://worldtimeapi.org/api/ip'
 
 async function getData() {
     const response = await fetch(url);
