@@ -1,9 +1,41 @@
+// VARIABLES DECLARATION ------------------------------------------------
 const productElement = document.querySelector('.products');
 const cartItemsElement = document.querySelector('.cart-items');
 const total = document.querySelector('.total');
 const checkoutBtn = document.getElementById('checkoutBtn');
 const input = document.querySelector('input');
+const dayCard = document.getElementById('dayCard');
+const timeZoneCard = document.getElementById('timeZoneCard');
 
+// USE OF API  -----------------------------------------------
+const url = 'http://worldtimeapi.org/api/ip'
+
+async function getData() {
+    const response = await fetch(url);
+    const data = await response.json();
+    const day = await data.day_of_year;
+    const timeZone = await data.timezone;
+    console.log(data);
+    dayCard.textContent += `Day of the year: ${day}`
+    timeZoneCard.textContent += `Your timezone: ${timeZone}`
+}
+
+getData()
+
+
+// PROMISES ------------------------------------------
+const prodAsk = () => {
+    return new Promise ((resolve, reject) => {
+        setTimeout(() => {
+            resolve(products);
+        }, 1000);
+    });
+};
+
+prodAsk();
+
+
+// RENDERING OF PROD IN PAGE ----------------------------------------------
 function renderProducts() {
     products.forEach( (product) => {
         productElement.innerHTML += `
@@ -34,7 +66,7 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 updateCart();
 
 
-
+// ADD TO CART FUNC -----------------------------------------------------
 function addToCart(id) {
 
     if(cart.some((item) => item.id === id )) {
@@ -61,7 +93,7 @@ function updateCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-
+// CALC FOR PRICE -----------------------------------------------------
 function renderTotal() {
     let totalPrice = 0;
     let totalItems = 0;
@@ -76,7 +108,7 @@ function renderTotal() {
 
 
 
-
+// CART ITEMS ------------------------------------------------
 function renderCartItems() {
     cartItemsElement.innerHTML = "";
     cart.forEach((item) => {
@@ -142,6 +174,8 @@ function changeNumberOfUnits(action, id) {
 
 }
 
+
+// CHECKOUT ---------------------------
 checkoutBtn.disabled = true;
 input.addEventListener("change",() => {
     if(document.querySelector("input").value === "") {
@@ -153,11 +187,11 @@ input.addEventListener("change",() => {
 
 
 checkoutBtn.addEventListener('click', function() {
-    let cart=[];
+    cart=[];
     updateCart();
     document.querySelector('.form-div').style.display = 'none';
     localStorage.clear();
-    total.innerHTML = `Mr/Ms your total is: $0 (0 item)`
-    alert('Successful checkout');
+    total.innerHTML = `Mr/Ms your total is: $0 (0 item)`;
+    Swal.fire('Successful Checkout');
 
 });

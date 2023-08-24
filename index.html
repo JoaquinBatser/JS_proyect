@@ -8,6 +8,14 @@
 </head>
 <body>
 
+    <div class="zone-info">
+        <div class="info">
+          <p id="dayCard"></p>  
+          <p id="timeZoneCard"></p>  
+        </div>
+    </div>
+
+
     <div class="form-div">
         <form id="form">
             <button class="close-btn btn">x</button>
@@ -34,7 +42,7 @@
             <label for="">Expiration date</label>
             <input type="date" required>
             
-            <button id="checkoutBtn" class="btn">
+            <button id="checkoutBtn" type="button" class="btn">
                 Checkout
             </button>
         </form>
@@ -88,5 +96,6 @@
     <script src="./js/products.js"></script>
     <script src="./js/form.js"></script>
     <script src="./js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
